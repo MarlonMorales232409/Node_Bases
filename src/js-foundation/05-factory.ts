@@ -15,6 +15,9 @@ interface PersonOptions {
 
 export const buildMakePerson = ({ getAge, getUUID }: BuildMakerPersonOptions) => {
 
+  if(typeof getAge !== 'function') throw new Error('getAge must to be a Function');
+  if(typeof getUUID !== 'function') throw new Error('getUUID must to be a Function');
+
   return ({ name, birthdate }: PersonOptions) => {
 
     return {
